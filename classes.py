@@ -34,8 +34,11 @@ class todolist:
         self.perio = set()
         for task in self.tasks_sort:
             self.perio.add(task.per)
+            
         sort_set = set(self.perio)
-        self.perio = list(sort_set)
+        
+        self.perio = sorted(sort_set)
+
         sort_set.clear()
         
         for i in range(len(self.perio)):
@@ -75,7 +78,7 @@ class todolist:
                 if len(rows) == 0 :
                     return False 
             for i in rows:
-                self.tasks.append(task(i[0] , i[1] , i[2]))
+                self.tasks.append(task(i[0] , i[1] , int(i[2])))
         except:
             print("An error happened! check your file name!")
             return None
